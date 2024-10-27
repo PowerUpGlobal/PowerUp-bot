@@ -22,7 +22,7 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, conv
   const [base64Image, setBase64Image] = useState<string | null>(null);
 
   const appStateContext = useContext(AppStateContext)
-  const OYD_ENABLED = appStateContext?.state.frontendSettings?.oyd_enabled || false;
+  const OYD_ENABLED = true; //appStateContext?.state.frontendSettings?.oyd_enabled || false;
 
   const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -87,6 +87,7 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, conv
         onKeyDown={onEnterPress}
       />
       {!OYD_ENABLED && (
+
         <div className={styles.fileInputContainer}>
           <input
             type="file"
@@ -102,7 +103,9 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, conv
               aria-label='Upload Image'
             />
           </label>
-        </div>)}
+        </div>)
+      
+      }
       {base64Image && <img className={styles.uploadedImage} src={base64Image} alt="Uploaded Preview" />}
       <div
         className={styles.questionInputSendButtonContainer}

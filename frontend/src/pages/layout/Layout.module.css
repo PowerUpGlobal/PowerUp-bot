@@ -25,16 +25,16 @@
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
-  line-height: 28px;
+  /* line-height: 28px; */
   display: flex;
   align-items: flex-end;
   color: #242424;
 }
 
 .headerIcon {
-  height: 32px;
+  /* height: 32px; */
   width: auto;
-  margin-left: 36px;
+  /* margin-left: 36px; */
 }
 
 .shareButtonContainer {
