@@ -35,6 +35,7 @@ from backend.utils import (
     convert_to_pf_format,
     format_pf_non_streaming_response,
 )
+from quart_cors import cors
 
 bp = Blueprint("routes", __name__, static_folder="static", template_folder="static")
 
@@ -43,6 +44,7 @@ cosmos_db_ready = asyncio.Event()
 
 def create_app():
     app = Quart(__name__)
+    app = cors(app, allow_origin="https://*.powerupglobal.io")
     app.register_blueprint(bp)
     app.config["TEMPLATES_AUTO_RELOAD"] = True
     
